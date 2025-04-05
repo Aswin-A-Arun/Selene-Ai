@@ -4,7 +4,7 @@ Selene AI is a sleek, modern web-based chatbot built with Next.js, React, Tailwi
 
 ⚠️ Deepseek API is not configured by default. This project currently works only with OpenAI out of the box.
 
-![Selene AI Screenshot](![{810391EA-0C17-4658-854A-A3E658894CAF}](https://github.com/user-attachments/assets/8327e7d4-8a30-4b8a-b1c6-b7ed2f29b77a)) <!-- Optional: Replace with a real screenshot -->
+(![{810391EA-0C17-4658-854A-A3E658894CAF}](https://github.com/user-attachments/assets/8327e7d4-8a30-4b8a-b1c6-b7ed2f29b77a)) <!-- Optional: Replace with a real screenshot -->
 
 ---
 
