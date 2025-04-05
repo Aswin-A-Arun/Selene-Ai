@@ -53,7 +53,7 @@ OPENAI_API_KEY=your_openai_api_key_here
 # Or for DeepSeek:
 DEEPSEEK_API_KEY=your_deepseek_api_key_here
 ```
-(Note: Currently Only Supports OpenAI, But if needed, it can be midified at your own will to support either one.)
+Note: Currently, the app only supports OpenAI. However, it can be modified to support DeepSeek as needed.
 
 ### 4. Start the development Server
 
