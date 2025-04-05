@@ -1,4 +1,4 @@
-// pages/api/deepseek.ts
+// pages/api/openai.ts
 import type { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -12,22 +12,22 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(400).json({ error: "Missing message in request body" });
   }
 
-  const apiKey = process.env.DEEPSEEK_API_KEY;
+  const apiKey = process.env.OPENAI_API_KEY;
 
   if (!apiKey) {
-    console.error("❌ Missing DEEPSEEK_API_KEY in .env.local");
+    console.error("❌ Missing OPENAI_API_KEY in environment variables");
     return res.status(500).json({ error: "Missing API key" });
   }
 
   try {
-    const response = await fetch("https://api.deepseek.com/v1/chat/completions", {
+    const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
-        model: "deepseek-chat",
+        model: "gpt-3.5-turbo", // or "gpt-4" if you're using GPT-4
         messages: [
           { role: "system", content: "You are Selene, a celestial AI assistant." },
           { role: "user", content: message },
@@ -38,13 +38,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const data = await response.json();
 
     if (!response.ok) {
-      console.error("❌ DeepSeek API error response:", data);
+      console.error("❌ OpenAI API error response:", data);
       return res.status(response.status).json({ error: data });
     }
 
     const reply = data?.choices?.[0]?.message?.content;
     if (!reply) {
-      console.error("❌ No reply content in DeepSeek response:", data);
+      console.error("❌ No reply content in OpenAI response:", data);
       return res.status(500).json({ error: "No reply received" });
     }
 
