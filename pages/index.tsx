@@ -23,7 +23,7 @@ export default function Home() {
 
       const data = await response.json();
       if (data?.response) {
-        setMessages((prev) => [...prev, `Selene: ${data.response}`]);
+        setMessages((prev) => [...prev, `Selene: ${data.reply}`]);
       } else {
         setMessages((prev) => [...prev, 'Selene: Hmm, something went wrong.']);
       }
